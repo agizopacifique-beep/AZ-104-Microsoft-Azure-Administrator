@@ -1,0 +1,76 @@
+# Lab 01 — Manage Microsoft Entra ID Identities
+
+![Domain](https://img.shields.io/badge/Domain-Identity_and_Governance-1B3A6B?style=flat)
+![Days](https://img.shields.io/badge/Study_Days-Days_1--2-1D9E75?style=flat)
+![Exam Weight](https://img.shields.io/badge/Exam_Weight-15--20%-6D5FD5?style=flat)
+
+---
+
+## Lab references
+
+| Resource | Link |
+|---|---|
+| Official lab guide (HTML) | https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator/Instructions/Labs/LAB_01-Manage_Entra_ID_Identities.html |
+| GitHub source (Markdown) | https://github.com/MicrosoftLearning/AZ-104-MicrosoftAzureAdministrator/blob/master/Instructions/Labs/LAB_01-Manage_Entra_ID_Identities.md |
+| Supporting files | None required |
+
+---
+
+## What I built
+
+- Created 5 member user accounts in Microsoft Entra ID with Usage Location set to United States
+- Provisioned 2 security groups: `AZ104-Admins` and `AZ104-Readers`
+- Configured a dynamic membership rule using attribute expression: `(user.department -eq "IT")`
+- Invited an external guest user via B2B collaboration
+- Enabled SSPR (Self-Service Password Reset) for a selected group
+- Configured authentication methods: email + mobile app code
+- Created a Conditional Access policy requiring MFA for admin portal access
+- Reviewed Identity Protection risk policies
+
+---
+
+## Key concepts — in my own words
+
+| Concept | My understanding |
+|---|---|
+| **Entra ID tenants** | A tenant is a specific instance of Entra ID containing accounts and groups — it represents your organization |
+| **Member vs guest users** | Members are internal users. Guests are external B2B invitees with limited access by default |
+| **Security vs M365 groups** | Security groups control access to resources. M365 groups provide collaboration tools (Teams, SharePoint) |
+| **Dynamic membership** | Groups update automatically when user attributes change. Requires Entra ID Premium P1/P2 license |
+| **MFA vs Conditional Access** | MFA alone is binary (on/off for everyone). Conditional Access applies MFA based on conditions like location or risk |
+| **SSPR** | Self-Service Password Reset allows users to reset passwords without IT help — reduces helpdesk calls |
+
+---
+
+## Exam tip
+
+> Dynamic membership groups require an Entra ID Premium P1 or P2 license — the exam tests this. The expression syntax `(user.department -eq "IT")` is tested directly. MFA vs Conditional Access is a classic exam trap: if the question says 'only require MFA under certain conditions', the answer is always Conditional Access, not MFA alone.
+
+---
+
+## Screenshots
+
+- `screenshots/entra-id-overview.png`
+- `screenshots/user-az104-user1-created.png`
+- `screenshots/group-az104-admins-members.png`
+- `screenshots/dynamic-rule-config.png`
+- `screenshots/sspr-enabled.png`
+- `screenshots/conditional-access-policy.png`
+
+> Add your screenshots to the `screenshots/` folder and they will render here automatically in GitHub.
+
+---
+
+## Commands used
+
+See `commands.sh` or `commands.ps1` in this folder for every CLI/PowerShell command run during this lab.
+
+---
+
+## Personal notes
+
+*(Add your own notes below this line after completing the lab)*
+
+---
+
+*Part of my [AZ-104 Labs Portfolio](../../README.md) — 28-day study roadmap*
